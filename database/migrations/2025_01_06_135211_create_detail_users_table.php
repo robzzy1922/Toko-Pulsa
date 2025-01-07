@@ -18,10 +18,8 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('date_of_birth');
             $table->string('address');
-            $table->UnsignedBigInteger('id_users');
             $table->timestamps();
-
-            $table->foreignId('id_users')->constrained('user')->onDelete('cascade');
+            $table->foreignId('user_id')->contrained('users')->onDelete('cascade');
         });
     }
 

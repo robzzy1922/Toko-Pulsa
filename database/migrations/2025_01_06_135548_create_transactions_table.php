@@ -13,17 +13,14 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->UnsignedBigInteger('id_users');
-            $table->UnsignedBigInteger('id_products');
-            $table->integer('phone_number');
+            $table->string('phone_number');
             $table->integer('amount');
             $table->enum('status', ['pending', 'success', 'failed']);
             $table->string('payment_method');
             $table->integer('total');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            // $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
             $table->timestamps();
-
-            $table->foreignId('id_users')->constrained('users')->onDelete('cascade');
-            $table->foreignId('id_products')->constrained('products')->onDelete('cascade');
         });
     }
 

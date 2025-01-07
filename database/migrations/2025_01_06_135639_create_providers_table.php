@@ -16,8 +16,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('code');
             $table->string('address');
-            $table->string('created_at');
-            $table->string('updated_at');
             $table->timestamps();
         });
     }
