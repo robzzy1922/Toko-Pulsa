@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('payment_method');
             $table->integer('total');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            // $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
+            $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
             $table->timestamps();
         });
     }
