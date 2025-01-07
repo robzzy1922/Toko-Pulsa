@@ -12,12 +12,21 @@ class Transaction extends Model
     protected $table = 'transactions';
 
     protected $fillable = [
-        'id_user',
-        'id_products',
-        'phone_number',
-        'amount',
+        'code_transaction',
+        'transaction_date',
         'status',
         'payment_method',
-        'total'
+        'total_amount'
     ];
+    // Konstanta untuk nilai enum
+    // public const STATUS_PENDING = 'pending';
+    // public const STATUS_SUCCESS = 'success';
+    // public const STATUS_FAILED = 'failed';
+
+    // Daftar nilai enum yang valid
+    // public const STATUS_OPTIONS = [
+    //     self::STATUS_PENDING,
+    //     self::STATUS_SUCCESS,
+    //     self::STATUS_FAILED,
+    // ];
 }
