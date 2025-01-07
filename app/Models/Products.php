@@ -12,12 +12,10 @@ class Products extends Model
     protected $table = 'products';
 
     protected $fillable = [
+        'provider_id',
         'name',
-        'type',
         'price',
-        'stock',
         'description',
-        'created_at',
-        'updated_at'
+        'image'
     ];
 }
