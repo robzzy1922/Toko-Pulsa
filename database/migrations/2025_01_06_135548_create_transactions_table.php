@@ -13,13 +13,12 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->string('phone_number');
-            $table->integer('amount');
+            $table->string('code_transaction');
+            $table->date('transaction_date');
             $table->enum('status', ['pending', 'success', 'failed']);
             $table->string('payment_method');
-            $table->integer('total');
+            $table->integer('total_amount');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
             $table->timestamps();
         });
     }
