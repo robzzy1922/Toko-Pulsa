@@ -26,8 +26,8 @@ return new class extends Migration
             $table->string('code_transaction');
             $table->datetime('transaction_date');
             $table->enum('status', ['succes', 'cancel', 'pending', 'delivery']);
-            $table->enum('payment_method', ['cash','cashless']);
             $table->integer('total_amount');
+            $table->enum('payment_type', ['cash','cashless']);
             $table->timestamps();
         });
     }

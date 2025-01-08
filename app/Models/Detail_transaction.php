@@ -9,10 +9,10 @@ class Detail_transaction extends Model
     protected $table = 'detail_transactions';
 
     protected $fillable = [
+        'transaction_id',
+        'product_id',
         'quantity',
         'price',
-        'subtotal',
-        'product_id',
-        'transaction_id'
+        'subtotal'
     ];
 }
