@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 
-class UserSeeder extends Seeder
+class UsersSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -22,6 +22,6 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
         ]);
 
-        User::factory(10)->create();
+        User::factory(1000)->create();
     }
 }
