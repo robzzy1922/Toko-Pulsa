@@ -11,5 +11,7 @@ Route::get('/', function () {
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login-process');
+Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
+
 
 // Route::get('/registration', [LoginController::class, 'registration'])->name('registration');

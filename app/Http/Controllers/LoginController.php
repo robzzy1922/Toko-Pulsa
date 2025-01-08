@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
@@ -15,20 +16,21 @@ class LoginController extends Controller
     {
         return view('auth.login');
     }
+    public function dashboard()
+    {
+        return view('dashboard');
+    }
     
     public function authenticate(Request $request)
     {
-        // dd($request);
-
-        $user = User::where('email', $request->email)->first();
-
-        if($user){
-
-            if(Hash::check($request->password, $user->password)){
+        if(Auth::attempt([
+            'email' => $request->email,
+            'password' => $request->password
+            ])) {
                 return redirect()->route('dashboard');
             }
-        }
-        return redirect()->back()->with('error', 'Email yang anda masukkan tidak ada!');
+            return redirect()->back()->with('error', 'Email atau Password yang anda masukkan tidak ada!');
+            
     }
 
     /**
@@ -46,7 +48,6 @@ class LoginController extends Controller
     {
         //
     }
-
     /**
      * Display the specified resource.
      */
