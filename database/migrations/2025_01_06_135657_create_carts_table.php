@@ -19,6 +19,7 @@ return new class extends Migration
             ->constrained('products');
             $table->integer('quantity');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

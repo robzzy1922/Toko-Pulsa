@@ -21,6 +21,8 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('subtotal');
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 
