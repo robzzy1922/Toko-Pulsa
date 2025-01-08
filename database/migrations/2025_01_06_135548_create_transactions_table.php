@@ -13,15 +13,16 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')
-            ->constrained('users')
-            ->onDelete('cascade');
 
+            //Aturan laravel foreiegn haru (nama_tabel_id)
+            $table->foreignId('user_id')
+            ->constrained('users');
+
+            //foreign tidak menggunakan aturan laravel
             $table->unsignedBigInteger('paid_with')->nullable();
             $table->foreign('paid_with')
             ->references('id')
-            ->on('app_settings')
-            ->onDelete('cascade');
+            ->on('app_settings');
 
             $table->string('code_transaction');
             $table->datetime('transaction_date');
@@ -29,6 +30,7 @@ return new class extends Migration
             $table->integer('total_amount');
             $table->enum('payment_type', ['cash','cashless']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
