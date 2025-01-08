@@ -14,6 +14,6 @@ class providers extends Model
 
     protected $fillable = [
         'name',
-        'code'
+        
     ];
 }

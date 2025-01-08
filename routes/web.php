@@ -14,4 +14,5 @@ Route::post('/login', [LoginController::class, 'authenticate'])->name('login-pro
 Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
 
 
-// Route::get('/registration', [LoginController::class, 'registration'])->name('registration');
+Route::get('/register', [LoginController::class, 'register'])->name('register');
+Route::post('/register', [LoginController::class, 'registration'])->name('register-process');

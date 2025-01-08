@@ -20,6 +20,29 @@ class LoginController extends Controller
     {
         return view('dashboard');
     }
+    public function register()
+    {
+        return view('auth.register');
+    }
+   
+
+    public function registration(Request $request)
+    {
+        $request->validate([
+            'username' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required'
+        ]);
+        
+        User::create([
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
+        ]);
+        return redirect()->route('login')
+        ->with('success', 'Anda Berhasil Mendaftar');
+
+    }
     
     public function authenticate(Request $request)
     {
