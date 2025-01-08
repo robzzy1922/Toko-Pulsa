@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <base href="{{ asset('admin/assets') }}">
+    <base href="{{ asset('admin') }}/">
 
     <!-- META DATA -->
     <meta charset="UTF-8">
@@ -16,7 +16,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/brand/favicon.ico" />
 
     <!-- TITLE -->
-    <title>Sash – Bootstrap 5 Admin & Dashboard Template</title>
+    <title>Robi Cell - Admin</title>
 
     <!-- BOOTSTRAP CSS -->
     <link id="style" href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -60,7 +60,8 @@
 
                 <div class="container-login100">
                     <div class="p-6 wrap-login100">
-                        <form class="login100-form validate-form">
+                    <form class="login100-form validate-form" action="{{ route('login-process') }}" method="POST">
+                        @csrf
                             <span class="pb-5 login100-form-title">
                                 Login
                             </span>
@@ -81,21 +82,21 @@
                                                 <a href="javascript:void(0)" class="bg-white input-group-text text-muted">
                                                     <i class="zmdi zmdi-email text-muted" aria-hidden="true"></i>
                                                 </a>
-                                                <input class="input100 border-start-0 form-control ms-0" type="email" placeholder="Email">
+                                                <input class="input100 border-start-0 form-control ms-0" type="email" name="email" placeholder="Email">
                                             </div>
                                             <div class="wrap-input100 validate-input input-group" id="Password-toggle">
                                                 <a href="javascript:void(0)" class="bg-white input-group-text text-muted">
                                                     <i class="zmdi zmdi-eye text-muted" aria-hidden="true"></i>
                                                 </a>
-                                                <input class="input100 border-start-0 form-control ms-0" type="password" placeholder="Password">
+                                                <input class="input100 border-start-0 form-control ms-0" name="password" type="password"  placeholder="Password">
                                             </div>
                                             <div class="pt-4 text-end">
                                                 <p class="mb-0"><a href="forgot-password.html" class="text-primary ms-1">Forgot Password?</a></p>
                                             </div>
                                             <div class="container-login100-form-btn">
-                                                <a href="index.html" class="login100-form-btn btn-primary">
+                                                <button class="login100-form-btn btn-primary">
                                                         Login
-                                                </a>
+                                                </button>
                                             </div>
                                             <div class="pt-3 text-center">
                                                 <p class="mb-0 text-dark">Not a member?<a href="register.html" class="text-primary ms-1">Sign UP</a></p>

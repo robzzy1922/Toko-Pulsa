@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -12,6 +14,21 @@ class LoginController extends Controller
     public function index()
     {
         return view('auth.login');
+    }
+    
+    public function authenticate(Request $request)
+    {
+        // dd($request);
+
+        $user = User::where('email', $request->email)->first();
+
+        if($user){
+
+            if(Hash::check($request->password, $user->password)){
+                return redirect()->route('dashboard');
+            }
+        }
+        return redirect()->back()->with('error', 'Email yang anda masukkan tidak ada!');
     }
 
     /**
