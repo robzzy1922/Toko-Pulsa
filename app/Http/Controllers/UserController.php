@@ -11,6 +11,11 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    public function dashboard(){
+        return view('content.admin.dashboard');
+    }
+
     public function index()
     {
         $users = User::paginate(10);
