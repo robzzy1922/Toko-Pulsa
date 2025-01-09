@@ -105,6 +105,11 @@ return [
         ),
     ],
 
+    // 'providers' => [
+    // Yajra\DataTables\DataTablesServiceProvider::class,
+    // ],
+
+
     /*
     |--------------------------------------------------------------------------
     | Maintenance Mode Driver

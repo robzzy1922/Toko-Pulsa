@@ -22,4 +22,6 @@ Route::post('/register', [LoginController::class, 'registration'])->name('regist
 
 
 Route::get('/manage-user', [UserController::class, 'index'])->name('manage-user');
-Route::get('/user-datatable', [UserController::class, 'datatable'])->name('user-datatable');
+Route::post('/user-datatable', [UserController::class, 'datatable'])->name('user-datatable');
+Route::get('/manage-user-edit/{id}', [UserController::class, 'edit'])->name('user-edit');
+Route::get('/manage-user-delete/{id}', [UserController::class, 'destroy'])->name('user-delete');

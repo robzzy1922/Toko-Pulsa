@@ -29,7 +29,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table mb-2 border text-nowrap text-md-nowrap table-hover">
+                                    <table id="user-data" class="table mb-2 border text-nowrap text-md-nowrap table-hover">
                                         <thead class="table-primary">
                                             <tr>
                                                 <th>ID</th>
@@ -70,18 +70,34 @@
     <script src="assets/plugins/datatable/dataTables.responsive.min.js"></script>
     <script src="assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
     <script>
-        $('#example').DataTable({
+        $('#user-data').DataTable({
             serverSide: true,
             ajax: {
                 url: "{{ route('user-datatable') }}",
                 type: 'POST'
             },
-            columnsDefs: [{
-                targets: 0,
-                render: function(data, type, full, meta) {
-                    return (meta.row + 1)
+            columnDefs: [{
+                    targets: 0,
+                    render: function(data, type, full, meta) {
+                        return (meta.row + 1)
+                    }
+                },
+                {
+                    targets: -1,
+                    render: function(data, type, full, meta) {
+                        console.log(data);
+                        let button =
+                            `
+                            <a href="{{ route('user-edit', ':id') }}" class="btn btn-sm btn-outline-primary">
+                                <i class="bi bi-pencil-square me-1">Edit</i></a>
+                        <a href="{{ route('user-delete', ':id') }}" class="btn btn-sm btn-outline-danger">
+                            <i class="bi bi-trash me-1">Hapus</i></a>
+                            `
+                        button = button.replaceAll(':id', data)
+                        return button
+                    }
                 }
-            }],
+            ],
             columns: [{
                     data: 'id'
                 },
@@ -94,6 +110,16 @@
                 {
                     data: 'id'
                 }
+
+                // {
+                //     data: 'action',
+                //     render: function(data, type, full, meta) {
+                //         return `
+            //         <a href="#" class="btn btn-sm btn-outline-primary">Edit</a>
+            //         <a href="#" class="btn btn-sm btn-outline-danger">Hapus</a>
+            //     `;
+                //     }
+                // }
             ]
         });
     </script>

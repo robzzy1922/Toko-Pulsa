@@ -3,6 +3,7 @@
 
 <head>
     <base href="{{ asset('admin') }}/">
+    <meta name="_token" content="{{ csrf_token() }}">
 
     <!-- META DATA -->
     <meta charset="UTF-8">
@@ -53,7 +54,7 @@
             <!-- /app-Header -->
 
             <!--APP-SIDEBAR-->
-           @include('layout.admin.sidebar')
+            @include('layout.admin.sidebar')
 
             <!--app-content open-->
             @yield('content')
@@ -79,8 +80,10 @@
                         <ul class="nav panel-tabs">
                             <li class=""><a href="#side1" class="active" data-bs-toggle="tab"><i
                                         class="fe fe-settings me-1"></i>Feeds</a></li>
-                            <li><a href="#side2" data-bs-toggle="tab"><i class="fe fe-message-circle"></i> Chat</a></li>
-                            <li><a href="#side3" data-bs-toggle="tab"><i class="fe fe-anchor me-1"></i>Timeline</a></li>
+                            <li><a href="#side2" data-bs-toggle="tab"><i class="fe fe-message-circle"></i> Chat</a>
+                            </li>
+                            <li><a href="#side3" data-bs-toggle="tab"><i class="fe fe-anchor me-1"></i>Timeline</a>
+                            </li>
                         </ul>
                     </div>
                     <div class="tab-content">
@@ -129,7 +132,8 @@
                                             <div class="d-flex align-items-end justify-content-between ms-2">
                                                 <h6 class="">You have pending tasks</h6>
                                                 <div>
-                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                    <a href="javascript:void(0)"><i
+                                                            class="fe fe-settings me-1"></i></a>
                                                     <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
                                                 </div>
                                             </div>
@@ -145,7 +149,8 @@
                                             <div class="d-flex align-items-end justify-content-between ms-2">
                                                 <h6 class="">New version arrived</h6>
                                                 <div>
-                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                    <a href="javascript:void(0)"><i
+                                                            class="fe fe-settings me-1"></i></a>
                                                     <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
                                                 </div>
                                             </div>
@@ -161,7 +166,8 @@
                                             <div class="d-flex align-items-end justify-content-between ms-2">
                                                 <h6 class="">Server #1 overloaded</h6>
                                                 <div>
-                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                    <a href="javascript:void(0)"><i
+                                                            class="fe fe-settings me-1"></i></a>
                                                     <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
                                                 </div>
                                             </div>
@@ -177,7 +183,8 @@
                                             <div class="d-flex align-items-end justify-content-between ms-2">
                                                 <h6 class="">New project launched</h6>
                                                 <div>
-                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                    <a href="javascript:void(0)"><i
+                                                            class="fe fe-settings me-1"></i></a>
                                                     <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
                                                 </div>
                                             </div>
@@ -197,7 +204,8 @@
                                             <div class="d-flex align-items-end justify-content-between ms-2">
                                                 <h6 class="">General Settings</h6>
                                                 <div>
-                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                    <a href="javascript:void(0)"><i
+                                                            class="fe fe-settings me-1"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -212,7 +220,8 @@
                                             <div class="d-flex align-items-end justify-content-between ms-2">
                                                 <h6 class="">Map Settings</h6>
                                                 <div>
-                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                    <a href="javascript:void(0)"><i
+                                                            class="fe fe-settings me-1"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -227,7 +236,8 @@
                                             <div class="d-flex align-items-end justify-content-between ms-2">
                                                 <h6 class="">Support Settings</h6>
                                                 <div>
-                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                    <a href="javascript:void(0)"><i
+                                                            class="fe fe-settings me-1"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -242,7 +252,8 @@
                                             <div class="d-flex align-items-end justify-content-between ms-2">
                                                 <h6 class="">Payment Settings</h6>
                                                 <div>
-                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                    <a href="javascript:void(0)"><i
+                                                            class="fe fe-settings me-1"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -257,7 +268,8 @@
                                             <div class="d-flex align-items-end justify-content-between ms-2">
                                                 <h6 class="">Notification Settings</h6>
                                                 <div>
-                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                    <a href="javascript:void(0)"><i
+                                                            class="fe fe-settings me-1"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -469,12 +481,15 @@
                                         <i class="task-icon1"></i>
                                         <h6 class="fw-semibold">Task Finished<span
                                                 class="mx-2 text-muted fs-11 fw-normal">09 July 2021</span></h6>
-                                        <p class="text-muted fs-12">Adam Berry finished task on<a href="javascript:void(0)"
-                                                class="fw-semibold"> Project Management</a></p>
+                                        <p class="text-muted fs-12">Adam Berry finished task on<a
+                                                href="javascript:void(0)" class="fw-semibold"> Project Management</a>
+                                        </p>
                                     </div>
                                     <div class="ms-auto d-md-flex me-3">
-                                        <a href="javascript:void(0)" class="text-muted me-2"><span class="fe fe-edit"></span></a>
-                                        <a href="javascript:void(0)" class="text-muted"><span class="fe fe-trash-2"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted me-2"><span
+                                                class="fe fe-edit"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted"><span
+                                                class="fe fe-trash-2"></span></a>
                                     </div>
                                 </li>
                                 <li class="d-sm-flex">
@@ -482,12 +497,15 @@
                                         <i class="task-icon1"></i>
                                         <h6 class="fw-semibold">New Comment<span
                                                 class="mx-2 text-muted fs-11 fw-normal">05 July 2021</span></h6>
-                                        <p class="text-muted fs-12">Victoria commented on Project <a href="javascript:void(0)"
-                                                class="fw-semibold"> AngularJS Template</a></p>
+                                        <p class="text-muted fs-12">Victoria commented on Project <a
+                                                href="javascript:void(0)" class="fw-semibold"> AngularJS Template</a>
+                                        </p>
                                     </div>
                                     <div class="ms-auto d-md-flex me-3">
-                                        <a href="javascript:void(0)" class="text-muted me-2"><span class="fe fe-edit"></span></a>
-                                        <a href="javascript:void(0)" class="text-muted"><span class="fe fe-trash-2"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted me-2"><span
+                                                class="fe fe-edit"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted"><span
+                                                class="fe fe-trash-2"></span></a>
                                     </div>
                                 </li>
                                 <li class="d-sm-flex">
@@ -495,12 +513,15 @@
                                         <i class="task-icon1"></i>
                                         <h6 class="fw-semibold">New Comment<span
                                                 class="mx-2 text-muted fs-11 fw-normal">25 June 2021</span></h6>
-                                        <p class="text-muted fs-12">Victoria commented on Project <a href="javascript:void(0)"
-                                                class="fw-semibold"> AngularJS Template</a></p>
+                                        <p class="text-muted fs-12">Victoria commented on Project <a
+                                                href="javascript:void(0)" class="fw-semibold"> AngularJS Template</a>
+                                        </p>
                                     </div>
                                     <div class="ms-auto d-md-flex me-3">
-                                        <a href="javascript:void(0)" class="text-muted me-2"><span class="fe fe-edit"></span></a>
-                                        <a href="javascript:void(0)" class="text-muted"><span class="fe fe-trash-2"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted me-2"><span
+                                                class="fe fe-edit"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted"><span
+                                                class="fe fe-trash-2"></span></a>
                                     </div>
                                 </li>
                                 <li class="d-sm-flex">
@@ -508,12 +529,15 @@
                                         <i class="task-icon1"></i>
                                         <h6 class="fw-semibold">Task Overdue<span
                                                 class="mx-2 text-muted fs-11 fw-normal">14 June 2021</span></h6>
-                                        <p class="mb-0 text-muted fs-12">Petey Cruiser finished task <a href="javascript:void(0)"
-                                                class="fw-semibold"> Integrated management</a></p>
+                                        <p class="mb-0 text-muted fs-12">Petey Cruiser finished task <a
+                                                href="javascript:void(0)" class="fw-semibold"> Integrated
+                                                management</a></p>
                                     </div>
                                     <div class="ms-auto d-md-flex me-3">
-                                        <a href="javascript:void(0)" class="text-muted me-2"><span class="fe fe-edit"></span></a>
-                                        <a href="javascript:void(0)" class="text-muted"><span class="fe fe-trash-2"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted me-2"><span
+                                                class="fe fe-edit"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted"><span
+                                                class="fe fe-trash-2"></span></a>
                                     </div>
                                 </li>
                                 <li class="d-sm-flex">
@@ -521,12 +545,15 @@
                                         <i class="task-icon1"></i>
                                         <h6 class="fw-semibold">Task Overdue<span
                                                 class="mx-2 text-muted fs-11 fw-normal">29 June 2021</span></h6>
-                                        <p class="mb-0 text-muted fs-12">Petey Cruiser finished task <a href="javascript:void(0)"
-                                                class="fw-semibold"> Integrated management</a></p>
+                                        <p class="mb-0 text-muted fs-12">Petey Cruiser finished task <a
+                                                href="javascript:void(0)" class="fw-semibold"> Integrated
+                                                management</a></p>
                                     </div>
                                     <div class="ms-auto d-md-flex me-3">
-                                        <a href="javascript:void(0)" class="text-muted me-2"><span class="fe fe-edit"></span></a>
-                                        <a href="javascript:void(0)" class="text-muted"><span class="fe fe-trash-2"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted me-2"><span
+                                                class="fe fe-edit"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted"><span
+                                                class="fe fe-trash-2"></span></a>
                                     </div>
                                 </li>
                                 <li class="d-sm-flex">
@@ -534,12 +561,15 @@
                                         <i class="task-icon1"></i>
                                         <h6 class="fw-semibold">Task Finished<span
                                                 class="mx-2 text-muted fs-11 fw-normal">09 July 2021</span></h6>
-                                        <p class="text-muted fs-12">Adam Berry finished task on<a href="javascript:void(0)"
-                                                class="fw-semibold"> Project Management</a></p>
+                                        <p class="text-muted fs-12">Adam Berry finished task on<a
+                                                href="javascript:void(0)" class="fw-semibold"> Project Management</a>
+                                        </p>
                                     </div>
                                     <div class="ms-auto d-md-flex me-3">
-                                        <a href="javascript:void(0)" class="text-muted me-2"><span class="fe fe-edit"></span></a>
-                                        <a href="javascript:void(0)" class="text-muted"><span class="fe fe-trash-2"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted me-2"><span
+                                                class="fe fe-edit"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted"><span
+                                                class="fe fe-trash-2"></span></a>
                                     </div>
                                 </li>
                             </ul>
@@ -562,69 +592,70 @@
                         <ul class="p-3 row">
                             <li class="mb-2 col-lg-6">
                                 <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block active">
-                                    <span class="country-selector"><img alt="" src="assets/images/flags/us_flag.jpg"
-                                            class="me-3 language"></span>USA
+                                    <span class="country-selector"><img alt=""
+                                            src="assets/images/flags/us_flag.jpg" class="me-3 language"></span>USA
                                 </a>
                             </li>
                             <li class="mb-2 col-lg-6">
                                 <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">
                                     <span class="country-selector"><img alt=""
-                                        src="assets/images/flags/italy_flag.jpg"
-                                        class="me-3 language"></span>Italy
+                                            src="assets/images/flags/italy_flag.jpg"
+                                            class="me-3 language"></span>Italy
                                 </a>
                             </li>
                             <li class="mb-2 col-lg-6">
                                 <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">
                                     <span class="country-selector"><img alt=""
-                                        src="assets/images/flags/spain_flag.jpg"
-                                        class="me-3 language"></span>Spain
+                                            src="assets/images/flags/spain_flag.jpg"
+                                            class="me-3 language"></span>Spain
                                 </a>
                             </li>
                             <li class="mb-2 col-lg-6">
                                 <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">
                                     <span class="country-selector"><img alt=""
-                                        src="assets/images/flags/india_flag.jpg"
-                                        class="me-3 language"></span>India
+                                            src="assets/images/flags/india_flag.jpg"
+                                            class="me-3 language"></span>India
                                 </a>
                             </li>
                             <li class="mb-2 col-lg-6">
                                 <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">
                                     <span class="country-selector"><img alt=""
-                                        src="assets/images/flags/french_flag.jpg"
-                                        class="me-3 language"></span>French
+                                            src="assets/images/flags/french_flag.jpg"
+                                            class="me-3 language"></span>French
                                 </a>
                             </li>
                             <li class="mb-2 col-lg-6">
                                 <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">
                                     <span class="country-selector"><img alt=""
-                                        src="assets/images/flags/russia_flag.jpg"
-                                        class="me-3 language"></span>Russia
+                                            src="assets/images/flags/russia_flag.jpg"
+                                            class="me-3 language"></span>Russia
                                 </a>
                             </li>
                             <li class="mb-2 col-lg-6">
                                 <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">
                                     <span class="country-selector"><img alt=""
-                                        src="assets/images/flags/germany_flag.jpg"
-                                        class="me-3 language"></span>Germany
+                                            src="assets/images/flags/germany_flag.jpg"
+                                            class="me-3 language"></span>Germany
                                 </a>
                             </li>
                             <li class="mb-2 col-lg-6">
                                 <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">
                                     <span class="country-selector"><img alt=""
-                                        src="assets/images/flags/argentina.jpg"
-                                        class="me-3 language"></span>Argentina
+                                            src="assets/images/flags/argentina.jpg"
+                                            class="me-3 language"></span>Argentina
                                 </a>
                             </li>
                             <li class="mb-2 col-lg-6">
                                 <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">
-                                    <span class="country-selector"><img alt="" src="assets/images/flags/malaysia.jpg"
-                                        class="me-3 language"></span>Malaysia
+                                    <span class="country-selector"><img alt=""
+                                            src="assets/images/flags/malaysia.jpg"
+                                            class="me-3 language"></span>Malaysia
                                 </a>
                             </li>
                             <li class="mb-2 col-lg-6">
                                 <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">
-                                    <span class="country-selector"><img alt="" src="assets/images/flags/turkey.jpg"
-                                        class="me-3 language"></span>Turkey
+                                    <span class="country-selector"><img alt=""
+                                            src="assets/images/flags/turkey.jpg" class="me-3 language"></span>Turkey
                                 </a>
                             </li>
                         </ul>
@@ -635,7 +666,7 @@
         <!-- Country-selector modal-->
 
         <!-- FOOTER -->
-       @include('layout.admin.footer')
+        @include('layout.admin.footer')
         <!-- FOOTER END -->
 
     </div>
@@ -663,6 +694,13 @@
     <!-- CUSTOM JS -->
     <script src="assets/js/custom.js"></script>
 
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        })
+    </script>
     @yield('scripts')
 
 </body>
