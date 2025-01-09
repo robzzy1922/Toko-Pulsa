@@ -24,7 +24,7 @@ class LoginController extends Controller
     {
         return view('auth.register');
     }
-   
+
 
     public function registration(Request $request)
     {
@@ -33,7 +33,7 @@ class LoginController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required'
         ]);
-        
+
         User::create([
             'username' => $request->username,
             'email' => $request->email,
@@ -43,7 +43,7 @@ class LoginController extends Controller
         ->with('success', 'Anda Berhasil Mendaftar');
 
     }
-    
+
     public function authenticate(Request $request)
     {
         if(Auth::attempt([
@@ -53,7 +53,7 @@ class LoginController extends Controller
                 return redirect()->route('dashboard');
             }
             return redirect()->back()->with('error', 'Email atau Password yang anda masukkan tidak ada!');
-            
+
     }
 
     /**
