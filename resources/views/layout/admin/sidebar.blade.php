@@ -27,7 +27,12 @@
                             class="side-menu__label">Dashboard</span></a>
                 </li>
                 <li class="sub-category">
-                    <h3>UI Kit</h3>
+                    <h3>Admin Menu</h3>
+                </li>
+                <li class="slide">
+                    <a class="side-menu__item" data-bs-toggle="slide" href="{{ route('manage-user')  }}"><i
+                            class="side-menu__icon bi bi-person-lines-fill"></i><span
+                            class="side-menu__label">Manage User</span></a>
                 </li>
                 <li class="slide">
                     <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
