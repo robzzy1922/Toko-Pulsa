@@ -25,3 +25,4 @@ Route::get('/manage-user', [UserController::class, 'index'])->name('manage-user'
 Route::post('/user-datatable', [UserController::class, 'datatable'])->name('user-datatable');
 Route::get('/manage-user-edit/{id}', [UserController::class, 'edit'])->name('user-edit');
 Route::get('/manage-user-delete/{id}', [UserController::class, 'destroy'])->name('user-delete');
+Route::put('/manage-user-update/{id}', [UserController::class, 'update'])->name('user-update');

@@ -27,7 +27,14 @@
                             <div class="card-header">
                                 <h3 class="card-title">Users</h3>
                             </div>
+
                             <div class="card-body">
+                                @if (Session::has('success'))
+                                    <div class="alert alert-icon alert-success alert-dismissible" role="alert">
+                                        {{ Session::get('success') }}
+                                    </div>
+                                @endif
+
                                 <div class="table-responsive">
                                     <table id="user-data" class="table mb-2 border text-nowrap text-md-nowrap table-hover">
                                         <thead class="table-primary">
