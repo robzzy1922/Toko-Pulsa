@@ -22,3 +22,4 @@ Route::post('/register', [LoginController::class, 'registration'])->name('regist
 
 
 Route::get('/manage-user', [UserController::class, 'index'])->name('manage-user');
+Route::get('/user-datatable', [UserController::class, 'datatable'])->name('user-datatable');
