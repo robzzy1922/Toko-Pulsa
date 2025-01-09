@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\RedirectResponse;
 
 class LoginController extends Controller
 {
@@ -50,7 +51,7 @@ class LoginController extends Controller
             'email' => $request->email,
             'password' => $request->password
             ])) {
-                return redirect()->route('dashboard');
+                return redirect()->route('admin.dashboard');
             }
             return redirect()->back()->with('error', 'Email atau Password yang anda masukkan tidak ada!');
 
@@ -101,5 +102,12 @@ class LoginController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function logout(): RedirectResponse
+    {
+        Auth::logout();
+
+        return redirect('/login')->with('success', 'Anda Berhasil Logout');
     }
 }

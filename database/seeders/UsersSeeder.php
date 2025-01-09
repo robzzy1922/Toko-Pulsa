@@ -2,12 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class UsersSeeder extends Seeder
 {
@@ -16,12 +15,28 @@ class UsersSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
+        // Membuat roles dan permissions
+        $adminRole = Role::create(['name' => 'admin']);
+        $userRole = Role::create(['name' => 'user']);
+
+        $editPermission = Permission::create(['name' => 'edit users']);
+        $deletePermission = Permission::create(['name' => 'delete users']);
+
+        // Memberikan permissions ke role
+        $adminRole->givePermissionTo([$editPermission, $deletePermission]);
+        $userRole->givePermissionTo([$editPermission]);
+
+        // Membuat pengguna dengan role admin
+        $admin = User::create([
             'username' => 'Robi',
             'email' => 'robi@gmail.com',
             'password' => Hash::make('password'),
         ]);
+        $admin->assignRole('admin');
 
-        User::factory(1000)->create();
+        // Membuat pengguna lainnya dengan role user
+        User::factory(100)->create()->each(function ($user) use ($userRole) {
+            $user->assignRole($userRole); // Semua pengguna diberi role 'user'
+        });
     }
 }
