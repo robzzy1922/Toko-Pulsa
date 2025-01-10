@@ -8,15 +8,17 @@
 
                 <!-- PAGE-HEADER -->
                 <div class="page-header">
-                    <h1 class="page-title">Table</h1>
+                    <h1 class="page-title">Data Barang</h1>
                     <div>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Tables</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Table</li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Barang</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Manage barang</li>
                         </ol>
                     </div>
                 </div>
                 <!-- PAGE-HEADER END -->
+
+
 
 
 
@@ -26,8 +28,11 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Users</h3>
+                                <div class="card-options">
+                                    <a href="{{ route('barang-create') }}" class="btn btn-primary"><i
+                                            class="bi bi-plus-square me-1"></i>Tambah Barang</a>
+                                </div>
                             </div>
-
                             <div class="card-body">
                                 @if (Session::has('success'))
                                     <div class="alert alert-icon alert-success alert-dismissible" role="alert">
@@ -40,9 +45,11 @@
                                         <thead class="table-primary">
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Username</th>
-                                                <th>Email</th>
-                                                <th>Action</th>
+                                                <th>Gambar</th>
+                                                <th>Nama</th>
+                                                <th>Deskripsi</th>
+                                                <th>Harga</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -80,7 +87,7 @@
         $('#user-data').DataTable({
             serverSide: true,
             ajax: {
-                url: "{{ route('user-datatable') }}",
+                url: "{{ route('barang-datatable') }}",
                 type: 'POST'
             },
             columnDefs: [{
@@ -109,10 +116,16 @@
                     data: 'id'
                 },
                 {
-                    data: 'username'
+                    data: 'image'
                 },
                 {
-                    data: 'email'
+                    data: 'name'
+                },
+                {
+                    data: 'description'
+                },
+                {
+                    data: 'price'
                 },
                 {
                     data: 'id'
