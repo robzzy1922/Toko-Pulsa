@@ -30,6 +30,7 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/manage-product-pulsa', [PulsaController::class, 'index'])->name('manage-pulsa');
     Route::post('/pulsa-datatable', [PulsaController::class, 'datatable'])->name('pulsa-datatable');
     Route::get('/manage-pulsa-create', [PulsaController::class, 'create'])->name('pulsa-create');
+    Route::post('/manage-pulsa-create', [PulsaController::class, 'store'])->name('pulsa-store');
     Route::get('/manage-pulsa-edit/{id}', [PulsaController::class, 'edit'])->name('pulsa-edit');
     Route::get('/manage-pulsa-delete/{id}', [PulsaController::class, 'destroy'])->name('pulsa-delete');
     Route::put('/manage-pulsa-update/{id}', [PulsaController::class, 'update'])->name('pulsa-update');
@@ -39,6 +40,7 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/manage-product-barang', [BarangController::class, 'index'])->name('manage-barang');
     Route::post('/barang-datatable', [BarangController::class, 'datatable'])->name('barang-datatable');
     Route::get('/manage-barang-create', [BarangController::class, 'create'])->name('barang-create');
+    Route::post('/manage-barang-create', [BarangController::class, 'store'])->name('barang-store');
     Route::get('/manage-barang-edit/{id}', [BarangController::class, 'edit'])->name('barang-edit');
     Route::get('/manage-barang-delete/{id}', [BarangController::class, 'destroy'])->name('barang-delete');
     Route::put('/manage-barang-update/{id}', [BarangController::class, 'update'])->name('barang-update');
