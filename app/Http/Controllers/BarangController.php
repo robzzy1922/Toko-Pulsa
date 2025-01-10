@@ -27,9 +27,9 @@ class BarangController extends Controller
      */
     public function datatable(Request $request)
     {
-        $barang = Products::query();
+        $barang = Products::where('type','barang');
 
-        return DataTables::of($barang)->make();
+        return DataTables::of($barang)->make(true);
     }
     public function create()
     {
@@ -43,7 +43,16 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Products::create([
+            'provider_id' => $request->provider_id,
+            'name' => $request->name,
+            'price' => $request->price,
+            'type' => "barang",
+            'description' => $request->description,
+            'image' => null
+        ]);
+
+        return redirect()->back()->with('success','Berhasil membuat data');
     }
 
     /**
@@ -70,11 +79,12 @@ class BarangController extends Controller
     public function update(Request $request, string $id)
     {
         Products::findOrFail($id)->update([
-            'provider' => $request->provider_id,
+            'provider_id' => $request->provider_id,
             'name' => $request->name,
             'price' => $request->price,
+            'type' => "barang",
             'description' => $request->description,
-            'image' => $request->image
+            'image' => null
         ]);
 
         return redirect()->back()->with('success','Berhasil mengubah data');

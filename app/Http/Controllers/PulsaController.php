@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Products;
 use App\Models\User;
+use App\Models\Products;
+use App\Models\Providers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Yajra\DataTables\Facades\DataTables;
@@ -27,13 +28,15 @@ class PulsaController extends Controller
      */
     public function datatable(Request $request)
     {
-        $pulsa = Products::query();
+        $pulsa = Products::where('type','pulsa');
 
-        return DataTables::of($pulsa)->make();
+        return DataTables::of($pulsa)->make(true);
     }
     public function create()
     {
-        //
+        $provider = Providers::get();
+
+        return view('content.admin.manage-pulsa-create', compact('provider'));
     }
 
     /**
@@ -41,7 +44,16 @@ class PulsaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Products::create([
+            'provider_id' => $request->provider_id,
+            'name' => $request->name,
+            'price' => $request->price,
+            'type' => "pulsa",
+            'description' => $request->description,
+            'image' => null
+        ]);
+
+        return redirect()->back()->with('success','Berhasil membuat data');
     }
 
     /**
@@ -68,11 +80,12 @@ class PulsaController extends Controller
     public function update(Request $request, string $id)
     {
         Products::findOrFail($id)->update([
-            'provider' => $request->provider_id,
+            'provider_id' => $request->provider_id,
             'name' => $request->name,
             'price' => $request->price,
+            'type' => "pulsa",
             'description' => $request->description,
-            'image' => $request->image
+            'image' => null
         ]);
 
         return redirect()->back()->with('success','Berhasil mengubah data');
