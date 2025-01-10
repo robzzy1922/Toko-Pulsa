@@ -18,6 +18,8 @@ Route::post('/register', [LoginController::class, 'registration'])->name('regist
 
 
 Route::middleware(['auth'])->group(function() {
+
+    //main
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/manage-user', [UserController::class, 'index'])->name('manage-user');
     Route::post('/user-datatable', [UserController::class, 'datatable'])->name('user-datatable');

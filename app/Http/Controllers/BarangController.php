@@ -43,6 +43,7 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
+
         Products::create([
             'provider_id' => $request->provider_id,
             'name' => $request->name,
