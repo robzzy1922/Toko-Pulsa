@@ -687,6 +687,9 @@
     <!-- Sticky js -->
     <script src="assets/js/sticky.js"></script>
 
+    {{-- Side menu js --}}
+    <script src="assets/plugins/sidemenu/sidemenu.js"></script>
+
 
     <!-- Color Theme js -->
     <script src="assets/js/themeColors.js"></script>
