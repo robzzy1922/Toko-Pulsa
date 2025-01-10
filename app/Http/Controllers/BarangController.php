@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Products;
+use App\Models\Providers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Products;
 use Yajra\DataTables\Facades\DataTables;
 
 class BarangController extends Controller
@@ -32,7 +33,9 @@ class BarangController extends Controller
     }
     public function create()
     {
-        //
+        $provider = Providers::get();
+
+        return view('content.admin.manage-barang-create', compact('provider'));
     }
 
     /**
@@ -67,8 +70,11 @@ class BarangController extends Controller
     public function update(Request $request, string $id)
     {
         Products::findOrFail($id)->update([
-            'username' => $request->username,
-            'email' => $request->email,
+            'provider' => $request->provider_id,
+            'name' => $request->name,
+            'price' => $request->price,
+            'description' => $request->description,
+            'image' => $request->image
         ]);
 
         return redirect()->back()->with('success','Berhasil mengubah data');

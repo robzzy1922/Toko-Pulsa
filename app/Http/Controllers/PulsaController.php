@@ -13,17 +13,13 @@ class PulsaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function dashboard(){
 
-        return view('content.admin.dashboard');
-
-    }
 
     public function index()
     {
         $pulsa = Products::paginate(10);
 
-        return view('content.admin.manage-user', compact('pulsa'));
+        return view('content.admin.manage-pulsa',  compact('pulsa'));
     }
 
     /**
@@ -63,7 +59,7 @@ class PulsaController extends Controller
     {
         $pulsa = Products::findOrFail($id);
 
-        return view('content.admin.manage-user-edit', compact('pulsa'));
+        return view('content.admin.manage-user-pulsa', compact('pulsa'));
     }
 
     /**
@@ -71,9 +67,12 @@ class PulsaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        User::findOrFail($id)->update([
-            'username' => $request->username,
-            'email' => $request->email,
+        Products::findOrFail($id)->update([
+            'provider' => $request->provider_id,
+            'name' => $request->name,
+            'price' => $request->price,
+            'description' => $request->description,
+            'image' => $request->image
         ]);
 
         return redirect()->back()->with('success','Berhasil mengubah data');
