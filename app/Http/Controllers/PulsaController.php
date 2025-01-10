@@ -2,23 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Products;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\Products;
+use Illuminate\Routing\Controller;
 use Yajra\DataTables\Facades\DataTables;
 
-class BarangController extends Controller
+class PulsaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    public function dashboard(){
+
+        return view('content.admin.dashboard');
+
+    }
 
     public function index()
     {
-        $barang = Products::paginate(10);
+        $pulsa = Products::paginate(10);
 
-        return view('content.admin.manage-barang', compact('barang'));
+        return view('content.admin.manage-user', compact('pulsa'));
     }
 
     /**
@@ -26,9 +31,9 @@ class BarangController extends Controller
      */
     public function datatable(Request $request)
     {
-        $barang = Products::query();
+        $pulsa = Products::query();
 
-        return DataTables::of($barang)->make();
+        return DataTables::of($pulsa)->make();
     }
     public function create()
     {
@@ -56,9 +61,9 @@ class BarangController extends Controller
      */
     public function edit(string $id)
     {
-        $barang = Products::findOrFail($id);
+        $pulsa = Products::findOrFail($id);
 
-        return view('content.admin.manage-barang-edit', compact('barang'));
+        return view('content.admin.manage-user-edit', compact('pulsa'));
     }
 
     /**
@@ -66,7 +71,7 @@ class BarangController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        Products::findOrFail($id)->update([
+        User::findOrFail($id)->update([
             'username' => $request->username,
             'email' => $request->email,
         ]);
