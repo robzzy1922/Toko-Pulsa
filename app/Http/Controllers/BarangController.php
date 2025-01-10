@@ -19,7 +19,7 @@ class BarangController extends Controller
     {
         $barang = Products::paginate(10);
 
-        return view('content.admin.manage-barang', compact('barang'));
+        return view('content.admin.barang.manage-barang', compact('barang'));
     }
 
     /**
@@ -35,7 +35,7 @@ class BarangController extends Controller
     {
         $provider = Providers::get();
 
-        return view('content.admin.manage-barang-create', compact('provider'));
+        return view('content.admin.barang.manage-barang-create', compact('provider'));
     }
 
     /**
@@ -70,7 +70,7 @@ class BarangController extends Controller
     {
         $barang = Products::findOrFail($id);
 
-        return view('content.admin.manage-barang-edit', compact('barang'));
+        return view('content.admin.barang.manage-barang-edit', compact('barang'));
     }
 
     /**

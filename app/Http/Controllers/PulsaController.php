@@ -20,7 +20,7 @@ class PulsaController extends Controller
     {
         $pulsa = Products::paginate(10);
 
-        return view('content.admin.manage-pulsa',  compact('pulsa'));
+        return view('content.admin.barang.manage-pulsa',  compact('pulsa'));
     }
 
     /**
@@ -36,7 +36,7 @@ class PulsaController extends Controller
     {
         $provider = Providers::get();
 
-        return view('content.admin.manage-pulsa-create', compact('provider'));
+        return view('content.admin.barang.manage-pulsa-create', compact('provider'));
     }
 
     /**
@@ -71,7 +71,7 @@ class PulsaController extends Controller
     {
         $pulsa = Products::findOrFail($id);
 
-        return view('content.admin.manage-user-pulsa', compact('pulsa'));
+        return view('content.admin.barang.manage-user-pulsa', compact('pulsa'));
     }
 
     /**

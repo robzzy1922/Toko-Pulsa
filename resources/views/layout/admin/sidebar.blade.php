@@ -36,8 +36,8 @@
                             class="side-menu__icon bi bi-basket"></i><span class="side-menu__label">Manage
                             Product</span><i class="angle fe fe-chevron-right"></i></a>
                     <ul class="slide-menu">
-                        <li><a href="cards.html" class="slide-item">Pulsa</a></li>
-                        <li><a href="cards.html" class="slide-item">Barang</a></li>
+                        <li><a href="{{ route('manage-barang') }}" class="slide-item">Barang</a></li>
+                        <li><a href="{{ route('manage-pulsa') }}" class="slide-item">Pulsa</a></li>
                     </ul>
                 </li>
             </ul>
