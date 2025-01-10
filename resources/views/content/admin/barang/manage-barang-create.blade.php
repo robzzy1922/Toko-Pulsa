@@ -32,8 +32,9 @@
                             <div class=" card-body">
                                 <div class="mb-5 row">
                                     <div class="mb-4 col-lg-12 col-sm-12 mb-lg-0">
-                                        <input type="file" name="image" class="dropify"
-                                            data-allowed-file-extensions="jpg jpeg png gif" data-bs-height="180" />
+                                        <input type="file" name="image" class="dropify" id="image"
+                                            data-allowed-file-extensions="png jpg jpeg" data-max-file-size="1M"
+                                            data-bs-height="180" />
                                     </div>
                                 </div>
                             </div>
